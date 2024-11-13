@@ -315,3 +315,18 @@ function checkExam(array1, array2) {
     return answer;
   }
 }
+
+// -> Sort the odd
+function sortArray(array) {
+  let sortedArray = []
+  for(let i = 0; i < array.length; i++){
+    if(array[i]%2 != 0){
+      sortedArray.push(array[i])
+    }
+  }
+  
+  sortedArray.sort((a,b)=> a - b)
+  
+  // Map over the original array, placing sorted odd numbers back in
+  return array.map(x => x%2 ? sortedArray.shift() : x)
+}
