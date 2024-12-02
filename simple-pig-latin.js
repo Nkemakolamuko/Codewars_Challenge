@@ -36,12 +36,12 @@ console.log(pigIt("Hello world how are you doing? !"));
 
 // Other people's solution
 
-// function pigIt(str){
-//     return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
-//   }
+// function pigIt(str) {
+//   return str.replace(/(\w)(\w*)(\s|$)/g, "$2$1ay$3");
+// }
 
 // function pigIt(str) {
-//     return str.replace(/\w+/g, (w) => {
-//       return w.slice(1) + w[0] + 'ay';
-//     });
-//   }
+//   return str.replace(/\w+/g, (w) => {
+//     return w.slice(1) + w[0] + "ay";
+//   });
+// }
