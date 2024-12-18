@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propagation</title>
+  </head>
+  <body>
+    <div id="parent" style="padding: 10px; border: 1px solid black">
+      Parent Element
+      <div id="child" style="padding: 5px; border: 1px solid black">
+        Child Element
+      </div>
+    </div>
+
+    <input type="text" id="first" placeholder="First Input" />
+    <input type="text" id="second" placeholder="Second Input" />
+    <button onclick="checkActiveElement()">Check Active Element</button>
+
+    <div>
+      <button id="btn">Push State</button>
+    </div>
+
+    <div>
+      <form action="/#" id="form">
+        <input type="text" name="meh" id="meh" />
+        <input type="button" value="Reset" id="resetBtn" />
+      </form>
+    </div>
+
+    <div id="content"></div>
+
+    <script>
+      document.onload = function () {
+        console.log("Document is fully loaded and parsed.");
+      };
+      let userInput = `<p>alert("Hacked!")</p>`;
+      document.getElementById("content").innerHTML = userInput;
+
+      let form = document.getElementById("form");
+      let resetBtn = document.getElementById("resetBtn");
+
+      resetBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        form.reset();
+      });
+
+      let parent = document
+        .getElementById("parent")
+        .addEventListener("click", function () {
+          console.log("Parent Click");
+        });
+      let child = document
+        .getElementById("child")
+        .addEventListener("click", function (event) {
+          //   event.stopImmediatePropagation();
+          event.stopPropagation();
+          console.log("Child click");
+        });
+      let child2 = document
+        .getElementById("child")
+        .addEventListener("click", function (event) {
+          console.log("Child click second");
+        });
+
+      function checkActiveElement() {
+        console.log("The active element is: " + document.activeElement.id);
+      }
+
+      document.getElementById("btn").addEventListener("click", (event) => {
+        window.history.pushState(
+          { page: "My Page", user: "Nkem" },
+          "The Title",
+          "#new-url"
+        );
+      });
+
+      console.log(window.innerHeight); // Height of the content area in pixels
+      console.log(window.outerHeight); // Total height of the browser window in pixels
+
+      window.onload = function () {
+        console.log(
+          "Window is fully loaded, including all external resources."
+        );
+      };
+    </script>
+  </body>
+</html>

@@ -6,7 +6,6 @@ You are given an unsorted array containing all the integers from 0 to 100 inclus
 function missingNo(nums) {
   let missingNum = [];
   let numberRange = [];
-  //   let sortedNums = nums.sort((a, b) => a - b);
   for (let i = 0; i < 101; i++) {
     numberRange.push(i);
   }
