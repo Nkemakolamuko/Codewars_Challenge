@@ -1,0 +1,4 @@
+export function addBinary(a:number,b:number):string {
+  let num: number = a + b;
+  return num.toString(2)
+}
