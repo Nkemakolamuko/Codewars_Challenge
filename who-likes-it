@@ -1,0 +1,22 @@
+export const likes = (a : string[]) : string => {
+  // TODO
+  let arrLength: number = a.length;
+  let msg: string;
+  switch(arrLength) {
+      case 0:
+        return msg = "no one likes this"
+      break;
+      case 1:
+        return msg = `${a[0]} likes this`
+      break;
+      case 2:
+        return msg = `${a[0]} and ${a[1]} like this`
+      break;
+      case 3:
+        return msg = `${a[0]}, ${a[1]} and ${a[2]} like this`
+      break;
+      default:
+        return msg = `${a[0]}, ${a[1]} and ${arrLength - 2} others like this`
+  }
+  
+}
